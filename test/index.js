@@ -3,6 +3,21 @@
 let expect  = require('chai').expect;
 let l  = require('../index.js');
 
+describe('builder', () => {
+
+  it('generates a string', () => {
+
+    var helloWorldQuery = l.builder((data) => {
+      return l.field(data.hello, l.term(data.world));
+    });
+
+    expect(helloWorldQuery({
+      hello: 'hello',
+      world: 'world'
+    })).to.equal('hello: "world"');
+  })
+});
+
 describe('range', () => {
 
   it('includes both the left and right equal cases', () => {
