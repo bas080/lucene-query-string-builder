@@ -35,7 +35,7 @@ var findUserLuceneQueryString = lucene.builder(function(data){
   // just to make the example more readable;
   var _ = lucene;
 
-  _.group(_.and(
+  return _.group(_.and(
     _.field('eye-color', _.term(data.eye.color)),
     _.field('age', _.range(data.age.min, data.age.max))
   ));
