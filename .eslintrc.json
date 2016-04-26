@@ -1,0 +1,41 @@
+{
+  "env"          : {
+    "es6" : true,
+    "node": true
+  },
+  "extends"      : "eslint:recommended",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "globals": {
+    "window": true,
+    "describe": true,
+    "xit": true,
+    "it": true
+  },
+  "rules"        : {
+    "no-var"         : "error",
+    "key-spacing"    : [
+      "error",
+      {
+        "align": "colon"
+      }
+    ],
+    "indent"         : [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes"         : [
+      "error",
+      "single"
+    ],
+    "semi"           : [
+      "error",
+      "always"
+    ]
+  }
+}
