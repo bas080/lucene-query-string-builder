@@ -1,8 +1,8 @@
 # Lucene Query String Builder
 
-More easily build your lucene string queries small and pure functions.
+More easily build your lucene string queries using small and pure functions.
 
-See the usage section to see how you can leverage this lib for your purposes.
+The usage section shows how you can leverage this lib for your purposes.
 
 ## Use cases
 
@@ -90,10 +90,11 @@ When performing pull request make sure to not add the **dist** files. This is le
 to the maintainers(s) of the library. They are responsible to version and avoid
 code breakages.
 
-You can perform your own build with npm run-script build to make a lucine.js and
-a lucine.min.js
+You can perform your own build with `npm run-script` build to make a *lucine.js* and
+a *lucine.min.js*
 
 **notice**
+
 I am currently not using this repository in any of my projects. Therefore I am looking
 for people that are able to make LQSB more useful for them and others.
 
@@ -103,6 +104,6 @@ for people that are able to make LQSB more useful for them and others.
 - escaping lucene query syntax characters in the term(s) function
 - tasks for running tests on dist/lucene.js and dist/lucene.min.js
 
-## LICENSE
+## License
 
 The MIT License (MIT)
