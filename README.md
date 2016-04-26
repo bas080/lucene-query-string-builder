@@ -58,6 +58,58 @@ specifications which can be found here:
 
 https://lucene.apache.org/core/2_9_4/queryparsersyntax.html#Terms
 
+```JavaScript
+
+  var _ = lucene;
+
+  /***
+   * terms or term
+   */
+
+  _.term('hello'); // => '"hello"'
+
+  _.terms('hello world'); // => '"hello world"'
+
+
+  /***
+   * field
+   */
+
+  _.field('hello', _.term('world')); // => 'hello: "world"'
+
+
+  /***
+   * or/and/not
+   *
+   * These functions are variadic and all work the same way. This example only
+     shows the or but ot works similar with and and not
+   */
+
+  _.or(_.term('hello'), _.term('world')); // => '"hello" OR "world"'
+
+  _.or(_.term('hello'), _.term('you'), _.term('world')); // => '"hello" OR "you" OR "world"'
+
+
+  /***
+   * group
+   *
+   * Is a variadic function too
+   */
+
+  _.group(_.term('hello'), _.term('you'), _.term('world')); // => '( "hello" "you" "world" )'
+
+
+  /***
+   * range
+   *
+   * Takes two strings and 2 booleans.
+   */
+
+  /* combined with the field function to query for ages between 10 and 20 */
+  _.field('age', _.range(10, 20)); // => 'age: { 10 TO 20 }'
+
+
+```
 - terms
 - term
 
