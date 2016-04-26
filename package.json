@@ -1,5 +1,5 @@
 {
-  "name": "LuceneJS",
+  "name": "lucene-query-string-builder",
   "version": "0.0.1",
   "description": "Build Lucene queries by defining lucene query builders",
   "main": "index.js",
