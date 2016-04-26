@@ -53,9 +53,7 @@ var luceneQueryString = findUserLuceneQueryString({
 luceneQueryString == "( eye-color: "brown" AND age:{ 10 TO 20 } )" // => true
 
 ```
-The list of all the functions available are. They are based on the
-specifications which can be found here:
-
+The functions  are based on the lucene specifications found here:
 https://lucene.apache.org/core/2_9_4/queryparsersyntax.html#Terms
 
 ```JavaScript
@@ -109,24 +107,27 @@ https://lucene.apache.org/core/2_9_4/queryparsersyntax.html#Terms
   _.field('age', _.range(10, 20)); // => 'age: { 10 TO 20 }'
 
 
+  /***
+   * fuzzy
+   */
+
+  _.fuzzy(_.term('hello'), 0.2); // => '"hello"~0.2'
+
+
+  /***
+   * proximity
+   */
+
+  _.proximity("a", "c", 2); // => '"a b"'~2
+
+
+  /***
+   * required
+   */
+
+  _.required(_.term('required')); // => '+"required"'
+
 ```
-- terms
-- term
-
-- field
-
-- or
-- and
-- not
-
-- group
-- range;
-
-- fuzzy;
-- proximity
-- required
-
-- builder
 
 ## Contributing
 
