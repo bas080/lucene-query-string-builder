@@ -1,4 +1,5 @@
 # Lucene Query String Builder
+[![Build Status](https://travis-ci.org/bas080/lucene-query-string-builder.svg?branch=master)](https://travis-ci.org/bas080/lucene-query-string-builder)
 
 More easily build your lucene string queries using small and pure functions.
 
