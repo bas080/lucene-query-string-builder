@@ -50,7 +50,7 @@ var luceneQueryString = findUserLuceneQueryString({
   }
 });
 
-luceneQueryString == "( eye-color: "brown" AND age:{ 10 TO 20 } )" // => true
+luceneQueryString === '( eye-color: "brown" AND age:{ 10 TO 20 } )' // => true
 
 ```
 The functions  are based on the lucene specifications found here:
