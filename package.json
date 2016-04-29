@@ -12,7 +12,7 @@
     "lint": "eslint index.js test/spec.js",
     "test": "mocha -b",
     "clean": "npm prune && rimraf dist",
-    "build": "npm run lint && npm run test && npm run setup && npm run clean && mkdir -p dist && npm run buildjs",
+    "build": "npm run lint && npm run setup && npm run clean && mkdir -p dist && npm run buildjs",
     "buildjs": "browserify index.js -o dist/lucene.js -t [ babelify --presets [ es2015 ] ] && npm run minify",
     "minify": "uglifyjs dist/lucene.js -c -m -o dist/lucene.min.js"
   },
