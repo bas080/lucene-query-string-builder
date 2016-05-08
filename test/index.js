@@ -51,9 +51,8 @@ describe('term', () => {
     expect(l.terms('hello world')).to.equal('"hello world"');
   });
 
-  xit('escapes query syntax characters', function(){
-    expect(l.terms('()')).to.equal('\\(\\)');
-    //expect(l.terms('')).to.equal('')
+  it('escapes query syntax characters', function(){
+    expect(l.terms('()')).to.equal('"\\(\\)"');
   });
 });
 

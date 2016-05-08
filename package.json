@@ -1,6 +1,6 @@
 {
   "name": "lucene-query-string-builder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Build Lucene queries by defining lucene query builders",
   "main": "index.js",
   "repository": {
@@ -29,6 +29,7 @@
     "browserify": "^13.0.0",
     "chai": "~3.5.0",
     "eslint": "~2.8.0",
+    "lucene-escape-query": "^1.0.1",
     "mocha": "~2.4.5",
     "rimraf": "^2.5.2",
     "uglifyjs": "^2.4.10"

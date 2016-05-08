@@ -1,17 +1,15 @@
 # Lucene Query String Builder
 [![Build Status](https://travis-ci.org/bas080/lucene-query-string-builder.svg?branch=master)](https://travis-ci.org/bas080/lucene-query-string-builder)
 
-More easily build your lucene string queries using small and pure functions.
-
-The usage section shows how you can leverage this lib for your purposes.
-
-## Use cases
+Easily build your lucene string queries using small and pure functions.
 
 Imagine having an API that leverages lucene for performing queries on the
 (indexed) database. In that case you might want to generate lucene query strings on
 the client/front end.
 
-## Installation
+The usage section shows how you can leverage this lib for your purposes.
+
+## Setup
 
 ```bash
 bower install lucene-query-string-builder --save
@@ -20,6 +18,12 @@ bower install lucene-query-string-builder --save
 
 npm install lucene-query-string-builder --save
 ```
+
+## Features
+
+- escapes lucene special chars when creating a term string
+- contains all the operators lucene uses
+- simple lucene.builder function for defining a lucene query builder
 
 ## Usage
 
@@ -54,7 +58,7 @@ var luceneQueryString = findUserLuceneQueryString({
 luceneQueryString === '( eye-color: "brown" AND age:{ 10 TO 20 } )' // => true
 
 ```
-The functions  are based on the lucene specifications found here:
+The functions are based on the lucene specifications found here:
 https://lucene.apache.org/core/2_9_4/queryparsersyntax.html#Terms
 
 ```JavaScript
@@ -132,12 +136,12 @@ https://lucene.apache.org/core/2_9_4/queryparsersyntax.html#Terms
 
 ## Contributing
 
+I have not gotten the chance to use this lib in my own projects. Please share
+your thoughts, issues and improvements.
+
 - Make sure your dependencies are installed by running: `npm run-script setup`
-
 - Then start editing the index.js
-
 - You should add and/or edit the tests in test/index.js
-
 - Run your tests and see what happens
 
 When performing pull request make sure to not add the **dist** files. This is left
@@ -155,7 +159,6 @@ for people that are able to make LQSB more useful for them and others.
 ## Road map
 
 - split all functions into separate files
-- escaping lucene query syntax characters in the term(s) function
 - tasks for running tests on dist/lucene.js and dist/lucene.min.js
 
 ## License

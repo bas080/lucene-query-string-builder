@@ -3,6 +3,7 @@
 const values     = require('object-values');
 const existy     = require('existy');
 const complement = require('complement');
+const luceneEscapeQuery = require('lucene-escape-query');
 
 /**
  * Lucene Query Builder
@@ -68,7 +69,8 @@ function builder(fn) {
  * @todo make sure lucene query characters are escaped with a \
  */
 function terms(words) {
-  return `"${words}"`;
+  let escaped = luceneEscapeQuery.escape(words);
+  return `"${escaped}"`;
 }
 
 /**
