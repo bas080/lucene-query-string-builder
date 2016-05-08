@@ -14,11 +14,11 @@ the client/front end.
 ## Installation
 
 ```bash
-bower install lucene-query-builder --save
+bower install lucene-query-string-builder --save
 
 # or
 
-npm install lucene-query-builder --save
+npm install lucene-query-string-builder --save
 ```
 
 ## Usage
