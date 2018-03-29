@@ -58,7 +58,7 @@ describe('term', () => {
 
 describe('fuzzy', () => {
 
-  it('throws an error when similarity is not valud', () => {
+  it('throws a RangeError when similarity is out of range', () => {
     expect(
     l.fuzzy.bind(null, l.term('lucene'), 200)
     ).to.throw(RangeError);
@@ -66,8 +66,8 @@ describe('fuzzy', () => {
 
   it('returns a valid fuzzy search when similarity is not defined', () => {
     expect(l.fuzzy('hello')).to.equal('hello~');
-    expect(l.fuzzy('hello', undefined)).to.equal('hello~');
-    expect(l.fuzzy('hello', null)).to.equal('hello~');
+    expect(l.fuzzy('hello')).to.equal('hello~');
+    expect(l.fuzzy('hello')).to.equal('hello~');
   });
 
   it('returns a valid fuzzy search when similarity param is passed', () => {
@@ -76,6 +76,22 @@ describe('fuzzy', () => {
     expect(l.fuzzy('hello', 0.5)).to.equal('hello~0.5');
   });
 });
+
+describe('proximity', () => {
+
+  it('returns a valid proximity query', () => {
+    expect(l.proximity('hello', 'world', 10)).to.equal('"hello world"~10');
+    //expect(l.proximity('hello', 'world', Infinity)).to.equal('"hello world"~Infinity');
+  });
+
+  it('throw when arguments are invalid', () => {
+    expect(l.proximity.bind(null, 'lucene')).to.throw(TypeError);
+    expect(l.proximity.bind(null, 'lucene', 'hello')).to.throw(TypeError);
+    expect(l.proximity.bind(null, 'lucene', 'hello', Infinity)).to.throw(RangeError);
+    expect(l.proximity.bind(null, 'lucene', 'hello', -1)).to.throw(RangeError);
+    expect(l.proximity.bind(null, 'lucene', 'hello', -Infinity)).to.throw(RangeError);
+  })
+})
 
 /***
  * These are combined as they use the same function to be bootstrapped

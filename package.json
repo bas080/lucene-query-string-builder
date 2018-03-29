@@ -32,11 +32,7 @@
     "lucene-escape-query": "^1.0.1",
     "mocha": "~2.4.5",
     "rimraf": "^2.5.2",
-    "uglifyjs": "^2.4.10"
+    "uglify-js": "^3.3.16"
   },
-  "dependencies": {
-    "complement": "^1.1.0",
-    "existy": "^1.0.1",
-    "object-values": "^1.0.0"
-  }
+  "dependencies": {}
 }
