@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const luceneEscapeQuery = require('lucene-escape-query');
+const luceneEscapeQuery = require('lucene-escape-query')
 
 /**
  * Lucene Query Builder
@@ -9,7 +9,7 @@ const luceneEscapeQuery = require('lucene-escape-query');
  * https://lucene.apache.org/core/2_9_4/queryparsersyntax.html#Terms
  */
 
-const lucene = {};
+const lucene = {}
 
 /**
  * https://lucene.apache.org/core/2_9_4/queryparsersyntax.html#Grouping
@@ -18,7 +18,7 @@ const lucene = {};
  *
  * @returns {string}
  */
-const group = surrounder('(', ')');
+const group = surrounder('(', ')')
 
 /**
  * Used for defining a query builder
@@ -36,10 +36,10 @@ const group = surrounder('(', ')');
  *
  * userLuceneQuery({user: {name: 'Dolly'}}) // => 'user-name: 'Dolly''
  */
-function builder(buildFn) {
-  assertFunction(buildFn, 'buildFn', 0);
+function builder (buildFn) {
+  assertFunction(buildFn, 'buildFn', 0)
 
-  return (data) => buildFn(data);
+  return (data) => buildFn(data)
 }
 
 /**
@@ -51,10 +51,10 @@ function builder(buildFn) {
  *
  * @todo make sure lucene query characters are escaped with a \
  */
-function terms(words) {
-  assertString(words, 'words', 0);
+function terms (words) {
+  assertString(words, 'words', 0)
 
-  return `"${luceneEscapeQuery.escape(words)}"`;
+  return `"${luceneEscapeQuery.escape(words)}"`
 }
 
 /**
@@ -65,11 +65,11 @@ function terms(words) {
  *
  * @returns {string}
  */
-function boost(term, boost) {
-  assertString(term, 'term', 0);
-  assertRange(1, Infinity, boost, 'boost', 1);
+function boost (term, boost) {
+  assertString(term, 'term', 0)
+  assertRange(1, Infinity, boost, 'boost', 1)
 
-  return `${term}^${boost}`;
+  return `${term}^${boost}`
 }
 
 /**
@@ -83,11 +83,11 @@ function boost(term, boost) {
  * @example
  * lucene.field('prop-name', lucene.term('value')) // => 'prop-name: "value"'
  */
-function field(field, query) {
-  assertString(field, 'field', 0);
-  assertString(query, 'query', 1);
+function field (field, query) {
+  assertString(field, 'field', 0)
+  assertString(query, 'query', 1)
 
-  return `${field}: ${query}`;
+  return `${field}: ${query}`
 }
 
 /**
@@ -102,15 +102,14 @@ function field(field, query) {
  * @param {number} [similarity=undefined]
  *
  */
-function fuzzy(term, similarity) {
-  assertString(term, 'term', 0);
+function fuzzy (term, similarity) {
+  assertString(term, 'term', 0)
 
-  if (arguments.length === 1)
-    return `${term}~`;
+  if (arguments.length === 1) { return `${term}~` }
 
-  assertRange(0, 1, similarity, 'similarity', 1);
+  assertRange(0, 1, similarity, 'similarity', 1)
 
-  return `${term}~${similarity}`;
+  return `${term}~${similarity}`
 }
 
 /**
@@ -125,12 +124,12 @@ function fuzzy(term, similarity) {
  *
  * @returns {string}
  */
-function proximity(first, second, distance) {
-  assertString(first, 'first', 0);
-  assertString(second, 'second', 1);
-  assertRange(0, Infinity, distance, 'distance', 2);
+function proximity (first, second, distance) {
+  assertString(first, 'first', 0)
+  assertString(second, 'second', 1)
+  assertRange(0, Infinity, distance, 'distance', 2)
 
-  return `"${first} ${second}"~${distance}`;
+  return `"${first} ${second}"~${distance}`
 }
 
 /**
@@ -147,14 +146,14 @@ function proximity(first, second, distance) {
  *
  * @returns {string}
  */
-function range(from, to, includeLeft, includeRight) {
-  assertString(from, 'from', 0);
-  assertString(from, 'to', 1);
+function range (from, to, includeLeft, includeRight) {
+  assertString(from, 'from', 0)
+  assertString(from, 'to', 1)
 
   return surrounder(
-    includeLeft  ? '[' : '{',
+    includeLeft ? '[' : '{',
     includeRight ? ']' : '}'
-  )(`${from} TO ${to}`);
+  )(`${from} TO ${to}`)
 }
 
 /**
@@ -162,10 +161,10 @@ function range(from, to, includeLeft, includeRight) {
  *
  * @returns {string}
  */
-function required(term) {
-  assertString(term, 'term', 0);
+function required (term) {
+  assertString(term, 'term', 0)
 
-  return `+${term}`;
+  return `+${term}`
 }
 
 /**
@@ -179,12 +178,12 @@ function required(term) {
  * @example
  * surrounded('OR')('hello', 'world') // -> "hello OR world"
  */
-function surrounded(middle) {
-  assertString(middle, 'middle', 0);
+function surrounded (middle) {
+  assertString(middle, 'middle', 0)
 
-  return function surround(){
-    return Array.prototype.slice.call(arguments).join(` ${middle} `);
-  };
+  return function surround () {
+    return Array.prototype.slice.call(arguments).join(` ${middle} `)
+  }
 }
 
 /**
@@ -196,16 +195,16 @@ function surrounded(middle) {
  *
  * @returns {function}
  */
-function surrounder(open, close){
-  assertString(open, 'open', 0);
-  assertString(close, 'close', 1);
+function surrounder (open, close) {
+  assertString(open, 'open', 0)
+  assertString(close, 'close', 1)
 
-  return function(){
+  return function () {
     const middle = Array.prototype.slice.call(arguments)
-      .join(' ');
+      .join(' ')
 
-    return `${open} ${middle} ${close}`;
-  };
+    return `${open} ${middle} ${close}`
+  }
 }
 
 /**
@@ -214,53 +213,44 @@ function surrounder(open, close){
  *
  * @returns {function}
  */
-function within(left, right, value) {
-  return ((value >= left) && (value <= right));
+function within (left, right, value) {
+  return ((value >= left) && (value <= right))
 }
 
-function assertString(value, name) {
-  if (typeof value !== 'string')
-    throw new TypeError(`${name} should be a string`);
+function assertString (value, name) {
+  if (typeof value !== 'string') { throw new TypeError(`${name} should be a string`) }
 }
 
-function assertRange(min, max, value, name) {
-  if (typeof value !== 'number')
-    throw new TypeError(`${name} should be a number`);
+function assertRange (min, max, value, name) {
+  if (typeof value !== 'number') { throw new TypeError(`${name} should be a number`) }
 
-  if (value > Number.MAX_SAFE_INTEGER)
-    throw new RangeError(`${name} should not exceeed "Number.MAX_SAFE_INTEGER"`);
+  if (value > Number.MAX_SAFE_INTEGER) { throw new RangeError(`${name} should not exceeed "Number.MAX_SAFE_INTEGER"`) }
 
-  if (!within(min, max, value))
-    throw new RangeError(`${name} should be between ${min} and ${max}`);
+  if (!within(min, max, value)) { throw new RangeError(`${name} should be between ${min} and ${max}`) }
 }
 
-function assertFunction(value, name) {
-  if (typeof value !== 'function')
-    throw new TypeError(`${name} should be a function`);
+function assertFunction (value, name) {
+  if (typeof value !== 'function') { throw new TypeError(`${name} should be a function`) }
 }
 
-lucene.phrase = terms;
-lucene.terms = terms;
-lucene.term  = terms; //alias
+lucene.phrase = terms
+lucene.terms = terms
+lucene.term = terms // alias
 
-lucene.field = field;
+lucene.field = field
 
-lucene.or  = surrounded('OR');
-lucene.and = surrounded('AND');
-lucene.not = surrounded('NOT');
+lucene.or = surrounded('OR')
+lucene.and = surrounded('AND')
+lucene.not = surrounded('NOT')
 
-lucene.group = group;
-lucene.range = range;
+lucene.group = group
+lucene.range = range
 
-lucene.fuzzy     = fuzzy;
-lucene.proximity = proximity;
-lucene.required  = required;
-lucene.boost = boost;
+lucene.fuzzy = fuzzy
+lucene.proximity = proximity
+lucene.required = required
+lucene.boost = boost
 
-lucene.builder = builder;
+lucene.builder = builder
 
-if (typeof module.exports === 'undefined')
-  window['lucene'] = lucene;
-else
-  module.exports = lucene;
-
+if (typeof module.exports === 'undefined') { window.lucene = lucene } else { module.exports = lucene }
