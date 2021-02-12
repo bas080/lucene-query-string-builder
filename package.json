@@ -11,9 +11,7 @@
     "lint": "standard",
     "pretest": "npm prune",
     "test": "mocha -b",
-    "posttest": "npm run lint",
-    "build": "npm test && babel ./index.js | browserify - | uglifyjs -c -m -o ./dist/lucene.min.js",
-    "preversion": "npm run build && git add ./dist/lucene.min.js"
+    "posttest": "npm run lint"
   },
   "keywords": [
     "lucene",
@@ -23,13 +21,9 @@
   "author": "Bas Huis <bas080@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.12.16",
-    "@babel/core": "^7.12.16",
-    "browserify": "^17.0.0",
     "chai": "~4.3.0",
     "mocha": "^8.3.0",
-    "standard": "^16.0.3",
-    "uglify-js": "^3.12.7"
+    "standard": "^16.0.3"
   },
   "standard": {
     "env": [

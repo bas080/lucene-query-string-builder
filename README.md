@@ -13,10 +13,6 @@ The usage section shows how you can leverage this lib for your purposes.
 ## Setup
 
 ```bash
-bower install lucene-query-string-builder --save
-
-# or
-
 npm install lucene-query-string-builder --save
 ```
 

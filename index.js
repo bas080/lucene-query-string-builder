@@ -253,4 +253,4 @@ lucene.boost = boost
 
 lucene.builder = builder
 
-if (typeof module.exports === 'undefined') { window.lucene = lucene } else { module.exports = lucene }
+module.exports = lucene
