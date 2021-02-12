@@ -1,5 +1,6 @@
 # Lucene Query String Builder
-[![Build Status](https://travis-ci.org/bas080/lucene-query-string-builder.svg?branch=master)](https://travis-ci.org/bas080/lucene-query-string-builder)
+
+[![Tests](https://github.com/bas080/lucene-query-string-builder/workflows/Node.js%20CI/badge.svg)](https://github.com/bas080/lucene-query-string-builder/actions)
 
 Easily build your lucene string queries using small and pure functions.
 
