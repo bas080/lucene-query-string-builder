@@ -5,7 +5,7 @@ const l = require('../index.js')
 
 describe('builder', () => {
   it('generates a string', () => {
-    var helloWorldQuery = l.builder((data) => {
+    const helloWorldQuery = l.builder((data) => {
       return l.field(data.hello, l.term(data.world))
     })
 

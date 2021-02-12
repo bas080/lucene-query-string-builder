@@ -12,7 +12,7 @@
     "pretest": "npm prune",
     "test": "mocha -b",
     "posttest": "npm run lint",
-    "build": "npm test && browserify index.js -t [ babelify --presets [ es2015 ] ] | uglifyjs -c -m -o ./dist/lucene.min.js",
+    "build": "npm test && babel ./index.js | browserify - | uglifyjs -c -m -o ./dist/lucene.min.js",
     "preversion": "npm run build && git add ./dist/lucene.min.js"
   },
   "keywords": [
@@ -23,13 +23,13 @@
   "author": "Bas Huis <bas080@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-preset-es2015": "^6.24.1",
-    "babelify": "^10.0.0",
-    "browserify": "^16.5.2",
-    "chai": "~4.2.0",
-    "mocha": "^8.1.3",
-    "standard": "^14.3.4",
-    "uglify-js": "^3.10.3"
+    "@babel/cli": "^7.12.16",
+    "@babel/core": "^7.12.16",
+    "browserify": "^17.0.0",
+    "chai": "~4.3.0",
+    "mocha": "^8.3.0",
+    "standard": "^16.0.3",
+    "uglify-js": "^3.12.7"
   },
   "standard": {
     "env": [
