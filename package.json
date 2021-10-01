@@ -1,6 +1,6 @@
 {
   "name": "lucene-query-string-builder",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Build Lucene queries by defining lucene query builders",
   "main": "index.js",
   "repository": {
@@ -8,10 +8,8 @@
     "url": "https://github.com/bas080/lucene-query-string-builder.git"
   },
   "scripts": {
-    "lint": "standard",
-    "pretest": "npm prune",
     "test": "mocha -b",
-    "posttest": "npm run lint"
+    "posttest": "standard"
   },
   "keywords": [
     "lucene",
