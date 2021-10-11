@@ -90,7 +90,7 @@ https://lucene.apache.org/core/2_9_4/queryparsersyntax.html#Terms
    * or/and/not
    *
    * These functions are variadic and all work the same way. This example only
-     shows the or but it works similar with and and not
+     shows the or but ot works similar with and and not
    */
 
   _.or(_.term('hello'), _.term('world')); // => '"hello" OR "world"'

@@ -5,6 +5,11 @@
 [![Dependency Status](https://img.shields.io/librariesio/release/npm/lucene-query-string-builder?style=flat-square)](https://libraries.io/npm/lucene-query-string-builder)
 [![Standard Code Style](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com)
 
+## Notice
+
+*Lucene Query String Builder* is looking for a developer to help with the API.
+I'll continue performing the maintenance tasks.
+
 Easily build your lucene string queries using small and pure functions.
 
 Imagine having an API that leverages lucene for performing queries on the
@@ -85,7 +90,7 @@ https://lucene.apache.org/core/2_9_4/queryparsersyntax.html#Terms
    * or/and/not
    *
    * These functions are variadic and all work the same way. This example only
-     shows the or but ot works similar with and and not
+     shows the or but it works similar with and and not
    */
 
   _.or(_.term('hello'), _.term('world')); // => '"hello" OR "world"'
@@ -149,7 +154,7 @@ npx nyc npm t
 ```
 ```
 
-> lucene-query-string-builder@1.0.6 test
+> lucene-query-string-builder@1.0.7 test
 > tape ./test/index.js
 
 TAP version 13
