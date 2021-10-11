@@ -1,5 +1,10 @@
 # Lucene Query String Builder
 
+[![NPM](https://img.shields.io/npm/v/lucene-query-string-builder?color=blue&style=flat-square)](https://www.npmjs.com/package/lucene-query-string-builder)
+[![NPM Downloads](https://img.shields.io/npm/dm/lucene-query-string-builder?style=flat-square)](https://www.npmjs.com/package/lucene-query-string-builder)
+[![Dependency Status](https://img.shields.io/librariesio/release/npm/lucene-query-string-builder?style=flat-square)](https://libraries.io/npm/lucene-query-string-builder)
+[![Standard Code Style](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com)
+
 Easily build your lucene string queries using small and pure functions.
 
 Imagine having an API that leverages lucene for performing queries on the
@@ -134,29 +139,17 @@ https://lucene.apache.org/core/2_9_4/queryparsersyntax.html#Terms
 ```bash bash
 set -eo pipefail
 
-npm i
-npm prune
+{
+  npm i
+  npm prune
+} > /dev/null
 
 npx standard --fix
 npx nyc npm t
 ```
 ```
 
-up to date, audited 72 packages in 604ms
-
-44 packages are looking for funding
-  run `npm fund` for details
-
-found 0 vulnerabilities
-
-up to date, audited 72 packages in 553ms
-
-44 packages are looking for funding
-  run `npm fund` for details
-
-found 0 vulnerabilities
-
-> lucene-query-string-builder@1.0.5 test
+> lucene-query-string-builder@1.0.6 test
 > tape ./test/index.js
 
 TAP version 13
