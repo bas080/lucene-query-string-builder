@@ -1,6 +1,6 @@
 {
   "name": "lucene-query-string-builder",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Build Lucene queries by defining lucene query builders",
   "main": "index.js",
   "repository": {
@@ -8,8 +8,7 @@
     "url": "https://github.com/bas080/lucene-query-string-builder.git"
   },
   "scripts": {
-    "test": "mocha -b",
-    "posttest": "standard"
+    "test": "tape ./test/index.js"
   },
   "keywords": [
     "lucene",
@@ -19,9 +18,7 @@
   "author": "Bas Huis <bas080@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "chai": "~4.3.0",
-    "mocha": "^8.3.0",
-    "standard": "^16.0.3"
+    "tape": "^5.3.1"
   },
   "standard": {
     "env": [
