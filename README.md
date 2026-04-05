@@ -141,7 +141,7 @@ https://lucene.apache.org/core/2_9_4/queryparsersyntax.html#Terms
 
 ## Tests
 
-```bash bash
+```bash
 set -eo pipefail
 
 {
@@ -154,7 +154,7 @@ npx nyc npm t
 ```
 ```
 
-> lucene-query-string-builder@1.0.7 test
+> lucene-query-string-builder@1.0.9 test
 > tape ./test/index.js
 
 TAP version 13
@@ -202,8 +202,8 @@ ok 27 should be strictly equal
 ----------|---------|----------|---------|---------|-------------------
 File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------|---------|----------|---------|---------|-------------------
-All files |   90.32 |    94.44 |   88.24 |   90.91 |                   
- index.js |   90.32 |    94.44 |   88.24 |   90.91 | 69-72,165-167     
+All files |   90.32 |    94.44 |   88.23 |    90.9 |                   
+ index.js |   90.32 |    94.44 |   88.23 |    90.9 | 69-72,165-167     
 ----------|---------|----------|---------|---------|-------------------
 ```
 
