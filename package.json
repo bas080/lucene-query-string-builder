@@ -8,7 +8,8 @@
     "url": "https://github.com/bas080/lucene-query-string-builder.git"
   },
   "scripts": {
-    "test": "tape ./test/index.js"
+    "test": "tape ./test/index.js",
+    "version": "markatzea README.mz | tee README.md && git add README.md"
   },
   "keywords": [
     "lucene",
