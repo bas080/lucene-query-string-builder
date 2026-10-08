@@ -19,7 +19,7 @@
   "author": "Bas Huis <bas080@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "tape": "^5.9.0"
+    "tape": "^5.10.2"
   },
   "standard": {
     "env": [
