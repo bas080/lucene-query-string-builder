@@ -154,7 +154,7 @@ npx nyc npm t
 ```
 ```
 
-> lucene-query-string-builder@1.0.9 test
+> lucene-query-string-builder@1.0.10 test
 > tape ./test/index.js
 
 TAP version 13
